@@ -33,4 +33,10 @@ static NSString * const ListCellKey = @"listCell";
     return cell;
 }
 
+- (void)newIdea {
+    NSMutableArray *mutableIdeas = [NSMutableArray arrayWithObject:[NSDictionary new]];
+    [mutableIdeas addObjectsFromArray:self.ideas];
+    self.ideas = [NSArray arrayWithArray:mutableIdeas];
+}
+
 @end

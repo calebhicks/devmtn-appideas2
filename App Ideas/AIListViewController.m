@@ -36,6 +36,14 @@
     [self.view addSubview:tableView];
     self.tableView = tableView;
 
+    UIBarButtonItem *plusButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newIdea)];
+    self.navigationItem.rightBarButtonItem = plusButton;
+    
+}
+
+- (void)newIdea {
+    [self.dataSource newIdea];
+    [self.tableView reloadData];
 }
 
 @end
