@@ -11,8 +11,9 @@
 
 static NSString * const ListCellKey = @"listCell";
 
-@interface AIListTableViewDataSource ()
+@interface AIListTableViewDataSource () <UITextFieldDelegate>
 
+@property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic, strong) NSArray *ideas;
 
 @end
@@ -20,6 +21,7 @@ static NSString * const ListCellKey = @"listCell";
 @implementation AIListTableViewDataSource
 
 - (void)registerTableView:(UITableView *)tableView {
+    self.tableView = tableView;
     [tableView registerClass:[AIListTableViewCell class] forCellReuseIdentifier:ListCellKey];
 }
 
@@ -29,14 +31,36 @@ static NSString * const ListCellKey = @"listCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AIListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ListCellKey];
+    cell.titleField.tag = indexPath.row;
+    cell.titleField.delegate = self;
     [cell updateWithIdea:self.ideas[indexPath.row]];
     return cell;
 }
 
 - (void)newIdea {
-    NSMutableArray *mutableIdeas = [NSMutableArray arrayWithObject:[NSDictionary new]];
+    
+    // In order to save the cell if still editing we need to resign the responder and have the delegate methods called. So we reload the tableview before adding another idea
+    [self.tableView reloadData];
+    
+    
+    NSMutableArray *mutableIdeas = [NSMutableArray arrayWithObject:@""];
     [mutableIdeas addObjectsFromArray:self.ideas];
     self.ideas = [NSArray arrayWithArray:mutableIdeas];
 }
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+
+    NSInteger index = textField.tag;
+    
+    NSMutableArray *mutableIdeas = [NSMutableArray arrayWithArray:self.ideas];
+    [mutableIdeas replaceObjectAtIndex:index withObject:textField.text];
+    self.ideas = [NSArray arrayWithArray:mutableIdeas];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
 
 @end

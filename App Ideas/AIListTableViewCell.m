@@ -24,6 +24,7 @@ static CGFloat margin = 15;
         
         UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(margin, 0, self.contentView.bounds.size.width - (3 * margin), self.contentView.bounds.size.height)];
         textField.placeholder = @"Idea Name";
+        self.titleField = textField;
         [self.contentView addSubview:textField];
         
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -32,8 +33,8 @@ static CGFloat margin = 15;
     return self;
 }
 
-- (void)updateWithIdea:(NSDictionary *)idea {
-
+- (void)updateWithIdea:(NSString *)idea {
+    self.titleField.text = idea;
 }
 
 @end

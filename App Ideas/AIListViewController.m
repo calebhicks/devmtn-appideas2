@@ -28,7 +28,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
+    
+    self.navigationItem.title = @"App Ideas";
+
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                   initWithTitle: @"Ideas"
+                                   style: UIBarButtonItemStylePlain
+                                   target: nil action: nil];
+
+    [self.navigationItem setBackBarButtonItem: backButton];
+    
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     [self.dataSource registerTableView:tableView];
     tableView.dataSource = self.dataSource;
@@ -38,6 +47,7 @@
 
     UIBarButtonItem *plusButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newIdea)];
     self.navigationItem.rightBarButtonItem = plusButton;
+    
     
 }
 

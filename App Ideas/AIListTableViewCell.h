@@ -10,6 +10,8 @@
 
 @interface AIListTableViewCell : UITableViewCell
 
-- (void)updateWithIdea:(NSDictionary *)idea;
+@property (nonatomic, strong, readonly) UITextField *titleField;
+
+- (void)updateWithIdea:(NSString *)idea;
 
 @end
