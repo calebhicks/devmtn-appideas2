@@ -7,8 +7,12 @@
 //
 
 #import "AIListViewController.h"
+#import "AIListTableViewDataSource.h"
 
 @interface AIListViewController ()
+
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) AIListTableViewDataSource *dataSource;
 
 @end
 
@@ -17,13 +21,19 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.dataSource = [AIListTableViewDataSource new];
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+ 
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView.dataSource = self.dataSource;
+    
+    [self.view addSubview:tableView];
+    self.tableView = tableView;
 
 }
 
