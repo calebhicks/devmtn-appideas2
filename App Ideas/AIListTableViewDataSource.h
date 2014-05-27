@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong, readonly) NSArray *ideas;
 
+- (void)registerTableView:(UITableView *)tableView;
+
 @end

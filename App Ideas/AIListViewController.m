@@ -30,6 +30,7 @@
     [super viewDidLoad];
  
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    [self.dataSource registerTableView:tableView];
     tableView.dataSource = self.dataSource;
     
     [self.view addSubview:tableView];

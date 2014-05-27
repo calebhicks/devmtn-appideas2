@@ -8,12 +8,26 @@
 
 #import "AIListTableViewCell.h"
 
+static CGFloat margin = 15;
+
+@interface AIListTableViewCell ()
+
+@property (nonatomic, strong) UITextField *titleField;
+
+@end
+
 @implementation AIListTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-
+        
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(margin, 0, self.contentView.bounds.size.width - (3 * margin), self.contentView.bounds.size.height)];
+        textField.placeholder = @"Idea Name";
+        [self.contentView addSubview:textField];
+        
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
     }
     return self;
 }
