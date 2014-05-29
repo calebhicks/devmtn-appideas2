@@ -8,6 +8,7 @@
 
 #import "AIListViewController.h"
 #import "AIListTableViewDataSource.h"
+#import "AIAppDetailViewController.h"
 
 @interface AIListViewController ()
 
@@ -41,6 +42,7 @@
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     [self.dataSource registerTableView:tableView];
     tableView.dataSource = self.dataSource;
+    tableView.delegate = self;
     
     [self.view addSubview:tableView];
     self.tableView = tableView;
@@ -48,6 +50,19 @@
     UIBarButtonItem *plusButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newIdea)];
     self.navigationItem.rightBarButtonItem = plusButton;
     
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    AIAppDetailViewController *viewController = [[AIAppDetailViewController alloc]init];
+    
+    //viewController.appIndex = indexPath.row;
+    
+    //[[NSUserDefaults standardUserDefaults] setObject:<#(id)#> forKey:<#(NSString *)#>:@100];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
     
 }
 

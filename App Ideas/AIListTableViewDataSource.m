@@ -10,6 +10,9 @@
 #import "AIListTableViewCell.h"
 
 static NSString * const ListCellKey = @"listCell";
+static NSString * const PersistentListKey = @"presistentList";
+
+static NSString * const TitleKey = @"Title";
 
 @interface AIListTableViewDataSource () <UITextFieldDelegate>
 
@@ -37,13 +40,30 @@ static NSString * const ListCellKey = @"listCell";
     return cell;
 }
 
+- (id)init{
+    self = [super init];
+    
+    self.ideas = [[NSUserDefaults standardUserDefaults] arrayForKey:PersistentListKey];
+    
+    
+    return self;
+}
+
+- (void)setIdeas:(NSArray *)ideas{
+    _ideas = ideas;
+    [[NSUserDefaults standardUserDefaults] setObject:ideas forKey:PersistentListKey];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
+
 - (void)newIdea {
     
     // In order to save the cell if still editing we need to resign the responder and have the delegate methods called. So we reload the tableview before adding another idea
     [self.tableView reloadData];
     
     
-    NSMutableArray *mutableIdeas = [NSMutableArray arrayWithObject:@""];
+    NSMutableArray *mutableIdeas = [NSMutableArray arrayWithObject:@{TitleKey:@""}];
     [mutableIdeas addObjectsFromArray:self.ideas];
     self.ideas = [NSArray arrayWithArray:mutableIdeas];
 }
@@ -52,8 +72,11 @@ static NSString * const ListCellKey = @"listCell";
 
     NSInteger index = textField.tag;
     
+    NSMutableDictionary *idea = [[NSMutableDictionary alloc]initWithDictionary:self.ideas[index]];
+    [idea setObject:textField.text forKey:TitleKey];
+    
     NSMutableArray *mutableIdeas = [NSMutableArray arrayWithArray:self.ideas];
-    [mutableIdeas replaceObjectAtIndex:index withObject:textField.text];
+    [mutableIdeas replaceObjectAtIndex:index withObject:idea];
     self.ideas = [NSArray arrayWithArray:mutableIdeas];
 }
 

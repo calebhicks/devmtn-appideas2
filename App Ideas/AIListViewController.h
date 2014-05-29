@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AIListViewController : UIViewController
+@interface AIListViewController : UIViewController <UITableViewDelegate>
 
 @end

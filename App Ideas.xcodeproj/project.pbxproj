@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C81E8D31936BA9C00F1DD60 /* AIAppDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C81E8D21936BA9C00F1DD60 /* AIAppDetailViewController.m */; };
+		3C81E8D61936BE9600F1DD60 /* AIAppDetailViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C81E8D51936BE9600F1DD60 /* AIAppDetailViewControllerDataSource.m */; };
 		711A4F02193458CB005642EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711A4F01193458CB005642EF /* Foundation.framework */; };
 		711A4F04193458CB005642EF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711A4F03193458CB005642EF /* CoreGraphics.framework */; };
 		711A4F06193458CB005642EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711A4F05193458CB005642EF /* UIKit.framework */; };
@@ -35,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C81E8D11936BA9C00F1DD60 /* AIAppDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAppDetailViewController.h; sourceTree = "<group>"; };
+		3C81E8D21936BA9C00F1DD60 /* AIAppDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAppDetailViewController.m; sourceTree = "<group>"; };
+		3C81E8D41936BE9600F1DD60 /* AIAppDetailViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAppDetailViewControllerDataSource.h; sourceTree = "<group>"; };
+		3C81E8D51936BE9600F1DD60 /* AIAppDetailViewControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAppDetailViewControllerDataSource.m; sourceTree = "<group>"; };
 		711A4EFE193458CB005642EF /* App Ideas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App Ideas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		711A4F01193458CB005642EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		711A4F03193458CB005642EF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -118,12 +124,16 @@
 			children = (
 				711A4F10193458CB005642EF /* AIAppDelegate.h */,
 				711A4F11193458CB005642EF /* AIAppDelegate.m */,
-				711A4F3319345A94005642EF /* AIListTableViewDataSource.h */,
-				711A4F3419345A94005642EF /* AIListTableViewDataSource.m */,
 				711A4F30193458E0005642EF /* AIListViewController.h */,
 				711A4F31193458E0005642EF /* AIListViewController.m */,
+				711A4F3319345A94005642EF /* AIListTableViewDataSource.h */,
+				711A4F3419345A94005642EF /* AIListTableViewDataSource.m */,
 				711A4F3919345E88005642EF /* AIListTableViewCell.h */,
 				711A4F3A19345E88005642EF /* AIListTableViewCell.m */,
+				3C81E8D41936BE9600F1DD60 /* AIAppDetailViewControllerDataSource.h */,
+				3C81E8D51936BE9600F1DD60 /* AIAppDetailViewControllerDataSource.m */,
+				3C81E8D11936BA9C00F1DD60 /* AIAppDetailViewController.h */,
+				3C81E8D21936BA9C00F1DD60 /* AIAppDetailViewController.m */,
 				711A4F13193458CB005642EF /* Images.xcassets */,
 				711A4F08193458CB005642EF /* Supporting Files */,
 			);
@@ -258,8 +268,10 @@
 				711A4F12193458CB005642EF /* AIAppDelegate.m in Sources */,
 				711A4F3519345A94005642EF /* AIListTableViewDataSource.m in Sources */,
 				711A4F32193458E0005642EF /* AIListViewController.m in Sources */,
+				3C81E8D31936BA9C00F1DD60 /* AIAppDetailViewController.m in Sources */,
 				711A4F3B19345E88005642EF /* AIListTableViewCell.m in Sources */,
 				711A4F0E193458CB005642EF /* main.m in Sources */,
+				3C81E8D61936BE9600F1DD60 /* AIAppDetailViewControllerDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

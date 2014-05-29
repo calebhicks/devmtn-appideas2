@@ -9,6 +9,8 @@
 #import "AIListTableViewCell.h"
 
 static CGFloat margin = 15;
+static NSString * const TitleKey = @"Title";
+
 
 @interface AIListTableViewCell ()
 
@@ -33,8 +35,8 @@ static CGFloat margin = 15;
     return self;
 }
 
-- (void)updateWithIdea:(NSString *)idea {
-    self.titleField.text = idea;
+- (void)updateWithIdea:(NSDictionary *)idea {
+    self.titleField.text = idea[TitleKey];
 }
 
 @end
