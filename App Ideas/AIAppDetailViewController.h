@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AIAppDetailViewController : UIViewController
+@interface AIAppDetailViewController : UIViewController <UITableViewDelegate, UITextFieldDelegate>
+
+@property (nonatomic, strong) NSDictionary *idea;
+
+- (void)updateWithIdea:(NSDictionary *)idea;
 
 @end

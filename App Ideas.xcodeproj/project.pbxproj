@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C5ACCD81937AB0400667EBE /* AIAppDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5ACCD71937AB0400667EBE /* AIAppDetailTableViewCell.m */; };
 		3C81E8D31936BA9C00F1DD60 /* AIAppDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C81E8D21936BA9C00F1DD60 /* AIAppDetailViewController.m */; };
 		3C81E8D61936BE9600F1DD60 /* AIAppDetailViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C81E8D51936BE9600F1DD60 /* AIAppDetailViewControllerDataSource.m */; };
 		711A4F02193458CB005642EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711A4F01193458CB005642EF /* Foundation.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C5ACCD61937AB0400667EBE /* AIAppDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAppDetailTableViewCell.h; sourceTree = "<group>"; };
+		3C5ACCD71937AB0400667EBE /* AIAppDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAppDetailTableViewCell.m; sourceTree = "<group>"; };
 		3C81E8D11936BA9C00F1DD60 /* AIAppDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAppDetailViewController.h; sourceTree = "<group>"; };
 		3C81E8D21936BA9C00F1DD60 /* AIAppDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAppDetailViewController.m; sourceTree = "<group>"; };
 		3C81E8D41936BE9600F1DD60 /* AIAppDetailViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAppDetailViewControllerDataSource.h; sourceTree = "<group>"; };
@@ -89,6 +92,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C5ACCD41937A1EF00667EBE /* Level 1 */ = {
+			isa = PBXGroup;
+			children = (
+				711A4F30193458E0005642EF /* AIListViewController.h */,
+				711A4F31193458E0005642EF /* AIListViewController.m */,
+				711A4F3319345A94005642EF /* AIListTableViewDataSource.h */,
+				711A4F3419345A94005642EF /* AIListTableViewDataSource.m */,
+				711A4F3919345E88005642EF /* AIListTableViewCell.h */,
+				711A4F3A19345E88005642EF /* AIListTableViewCell.m */,
+			);
+			name = "Level 1";
+			sourceTree = "<group>";
+		};
+		3C5ACCD51937A1FF00667EBE /* Level 2 */ = {
+			isa = PBXGroup;
+			children = (
+				3C81E8D41936BE9600F1DD60 /* AIAppDetailViewControllerDataSource.h */,
+				3C81E8D51936BE9600F1DD60 /* AIAppDetailViewControllerDataSource.m */,
+				3C81E8D11936BA9C00F1DD60 /* AIAppDetailViewController.h */,
+				3C81E8D21936BA9C00F1DD60 /* AIAppDetailViewController.m */,
+				3C5ACCD61937AB0400667EBE /* AIAppDetailTableViewCell.h */,
+				3C5ACCD71937AB0400667EBE /* AIAppDetailTableViewCell.m */,
+			);
+			name = "Level 2";
+			sourceTree = "<group>";
+		};
 		711A4EF5193458CB005642EF = {
 			isa = PBXGroup;
 			children = (
@@ -124,16 +153,8 @@
 			children = (
 				711A4F10193458CB005642EF /* AIAppDelegate.h */,
 				711A4F11193458CB005642EF /* AIAppDelegate.m */,
-				711A4F30193458E0005642EF /* AIListViewController.h */,
-				711A4F31193458E0005642EF /* AIListViewController.m */,
-				711A4F3319345A94005642EF /* AIListTableViewDataSource.h */,
-				711A4F3419345A94005642EF /* AIListTableViewDataSource.m */,
-				711A4F3919345E88005642EF /* AIListTableViewCell.h */,
-				711A4F3A19345E88005642EF /* AIListTableViewCell.m */,
-				3C81E8D41936BE9600F1DD60 /* AIAppDetailViewControllerDataSource.h */,
-				3C81E8D51936BE9600F1DD60 /* AIAppDetailViewControllerDataSource.m */,
-				3C81E8D11936BA9C00F1DD60 /* AIAppDetailViewController.h */,
-				3C81E8D21936BA9C00F1DD60 /* AIAppDetailViewController.m */,
+				3C5ACCD41937A1EF00667EBE /* Level 1 */,
+				3C5ACCD51937A1FF00667EBE /* Level 2 */,
 				711A4F13193458CB005642EF /* Images.xcassets */,
 				711A4F08193458CB005642EF /* Supporting Files */,
 			);
@@ -271,6 +292,7 @@
 				3C81E8D31936BA9C00F1DD60 /* AIAppDetailViewController.m in Sources */,
 				711A4F3B19345E88005642EF /* AIListTableViewCell.m in Sources */,
 				711A4F0E193458CB005642EF /* main.m in Sources */,
+				3C5ACCD81937AB0400667EBE /* AIAppDetailTableViewCell.m in Sources */,
 				3C81E8D61936BE9600F1DD60 /* AIAppDetailViewControllerDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,13 +11,11 @@
 
 static NSString * const ListCellKey = @"listCell";
 static NSString * const PersistentListKey = @"presistentList";
-
 static NSString * const TitleKey = @"Title";
 
 @interface AIListTableViewDataSource () <UITextFieldDelegate>
 
 @property (nonatomic, weak) UITableView *tableView;
-@property (nonatomic, strong) NSArray *ideas;
 
 @end
 
@@ -51,8 +49,8 @@ static NSString * const TitleKey = @"Title";
 
 - (void)setIdeas:(NSArray *)ideas{
     _ideas = ideas;
-    [[NSUserDefaults standardUserDefaults] setObject:ideas forKey:PersistentListKey];
     
+    [[NSUserDefaults standardUserDefaults] setObject:ideas forKey:PersistentListKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
 }
@@ -61,7 +59,6 @@ static NSString * const TitleKey = @"Title";
     
     // In order to save the cell if still editing we need to resign the responder and have the delegate methods called. So we reload the tableview before adding another idea
     [self.tableView reloadData];
-    
     
     NSMutableArray *mutableIdeas = [NSMutableArray arrayWithObject:@{TitleKey:@""}];
     [mutableIdeas addObjectsFromArray:self.ideas];
@@ -78,6 +75,7 @@ static NSString * const TitleKey = @"Title";
     NSMutableArray *mutableIdeas = [NSMutableArray arrayWithArray:self.ideas];
     [mutableIdeas replaceObjectAtIndex:index withObject:idea];
     self.ideas = [NSArray arrayWithArray:mutableIdeas];
+    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

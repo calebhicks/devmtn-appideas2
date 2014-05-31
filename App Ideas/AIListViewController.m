@@ -57,9 +57,8 @@
 {
     AIAppDetailViewController *viewController = [[AIAppDetailViewController alloc]init];
     
-    //viewController.appIndex = indexPath.row;
-    
-    //[[NSUserDefaults standardUserDefaults] setObject:<#(id)#> forKey:<#(NSString *)#>:@100];
+    [viewController updateWithIdea:self.dataSource.ideas[indexPath.row]];
+
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self.navigationController pushViewController:viewController animated:YES];

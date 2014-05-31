@@ -7,8 +7,15 @@
 //
 
 #import "AIAppDetailViewController.h"
+#import "AIAppDetailViewControllerDataSource.h"
+
+static NSString * const titleKey = @"title";
 
 @interface AIAppDetailViewController ()
+
+@property (nonatomic, strong) AIAppDetailViewControllerDataSource *dataSource;
+@property (nonatomic, strong) UITableView *tableView;
+
 
 @end
 
@@ -18,7 +25,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.dataSource = [AIAppDetailViewControllerDataSource new];
     }
     return self;
 }
@@ -26,13 +33,44 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.navigationItem.title = self.title;
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView.dataSource = self.dataSource;
+    tableView.delegate = self;
+    tableView.rowHeight = 120;
+    self.tableView = tableView;
+    [self.view addSubview:tableView];
+
+    [self.dataSource registerTableView:tableView];
+    
+    
+    UIBarButtonItem *plusButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newVoice)];
+    self.navigationItem.rightBarButtonItem = plusButton;
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)newVoice {
+    
+    [self.dataSource newVoice];
+    [self.tableView reloadData];
+}
+
+- (void)updateWithIdea:(NSDictionary *)idea {
+    self.idea = idea;
+    self.dataSource.idea = idea;
+    
+    self.title = idea[titleKey];
+    
 }
 
 /*

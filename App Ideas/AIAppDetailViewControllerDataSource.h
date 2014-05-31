@@ -10,4 +10,9 @@
 
 @interface AIAppDetailViewControllerDataSource : NSObject <UITableViewDataSource>
 
+- (void)newVoice;
+- (void)registerTableView:(UITableView *)tableView;
+
+@property (nonatomic, strong) NSDictionary *idea;
+
 @end
